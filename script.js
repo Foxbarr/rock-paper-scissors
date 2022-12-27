@@ -1,4 +1,4 @@
-function random_item(items)
+function getComputerChoice(items)
 {
   
 return items[Math.floor(Math.random()*items.length)];
@@ -7,32 +7,47 @@ return items[Math.floor(Math.random()*items.length)];
 
 var items = ["rock", "paper", "scissors"];
 let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
-let computerSelection = random_item(items);
+let computerSelection = getComputerChoice(items);
 
 function round(){
     if(playerSelection === computerSelection){
-        console.log("Tie Game!");
+        playerSelection == computerSelection;
     }
     else if(playerSelection == "paper" && computerSelection == "rock"){
-        console.log("You won! Paper beats Rock!");
+        playerSelection > computerSelection;
     }
     else if(playerSelection == "scissors" && computerSelection == "paper"){
-        console.log("You won! Scissors beats Paper!");
+        playerSelection > computerSelection;
     }
     else if(playerSelection == "rock" && computerSelection == "scissors"){
-        console.log("You won! Rock beats Scissors");
+        playerSelection > computerSelection;
     }
     else if(playerSelection == "rock" && computerSelection == "paper"){
-        console.log("Computer Wins! Paper beats Rock!");
+        playerSelection < computerSelection;
     }
     else if(playerSelection == "paper" && computerSelection == "scissors"){
-        console.log("Computer Wins! Scissors beats Paper!");
+        playerSelection < computerSelection;
     }
     else if(playerSelection == "scissors" && computerSelection == "rock"){
-        console.log("Computer Wins! Rock beats Scissors!");
+        playerSelection < computerSelection;
     }
 
 }
-console.log("Computer chose " + computerSelection);
-console.log(playerSelection);
+
 round();
+
+function oneRound(String)
+{
+
+    if(playerSelection == computerSelection){
+        return String ("Tie Game " + playerSelection + "is the same as" + computerSelection) 
+    }
+    else if(playerSelection > computerSelection){
+        return String ("You won! " + playerSelection + "beats" + computerSelection)
+    }
+    else if(playerSelection < computerSelection){
+        return String ("You lost! " + computerSelection + "beats" + playerSelection)
+    }
+}
+
+console.log(oneRound(String));
