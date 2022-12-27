@@ -1,3 +1,12 @@
+//variable declaration
+var items = ["rock", "paper", "scissors"];
+let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
+let computerSelection = getComputerChoice(items);
+let win = 0;
+let lose = 0;
+let tie = 0;
+
+//getting computer choice
 function getComputerChoice(items)
 {
   
@@ -5,10 +14,7 @@ return items[Math.floor(Math.random()*items.length)];
      
 }
 
-var items = ["rock", "paper", "scissors"];
-let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
-let computerSelection = getComputerChoice(items);
-
+//function to take reults and store who won
 function round(){
     if(playerSelection === computerSelection){
         playerSelection == computerSelection;
@@ -34,20 +40,40 @@ function round(){
 
 }
 
-round();
-
-function oneRound(String)
+//function to return result of who wins
+/*function oneRound()
 {
-
     if(playerSelection == computerSelection){
-        return String ("Tie Game " + playerSelection + "is the same as" + computerSelection) 
+        tie++;
     }
     else if(playerSelection > computerSelection){
-        return String ("You won! " + playerSelection + "beats" + computerSelection)
+        win++;
     }
     else if(playerSelection < computerSelection){
-        return String ("You lost! " + computerSelection + "beats" + playerSelection)
+        lose++;
     }
-}
+}*/
 
-console.log(oneRound(String));
+//function to run game 5 times
+function game(){
+    round();
+   // oneRound();
+
+    for (let i = 0; i < 5; i++) {
+        if (i == "win"){
+            win++;
+        } 
+        if (i == "lose"){
+            lose++;
+        } 
+        if (i == "tie"){
+            tie++;
+        } 
+    }
+
+    console.log("wins: " + win);
+    console.log("losses: " + lose);
+    console.log("ties: " + tie);
+    }
+    
+game();
