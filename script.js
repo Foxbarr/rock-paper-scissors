@@ -1,10 +1,6 @@
 //variable declaration
 var items = ["rock", "paper", "scissors"];
-let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
-let computerSelection = getComputerChoice(items);
-let win = 0;
-let lose = 0;
-let tie = 0;
+
 
 //getting computer choice
 function getComputerChoice(items)
@@ -14,66 +10,76 @@ return items[Math.floor(Math.random()*items.length)];
      
 }
 
-//function to take reults and store who won
+
+//function to play one round and output result
 function round(){
+    let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
+    let computerSelection = getComputerChoice(items);
+    let win = 0;
+    let lose = 0;
+    let tie = 0;
+    let result1 = '';
+    let result2 = '';
+    let result3 = '';
+
     if(playerSelection === computerSelection){
-        playerSelection == computerSelection;
+        result3 = tie++;
+        console.log("It's a tie!");
     }
     else if(playerSelection == "paper" && computerSelection == "rock"){
-        playerSelection > computerSelection;
+        result1 = win++;
+        console.log("You Win! Paper beats rock");
     }
     else if(playerSelection == "scissors" && computerSelection == "paper"){
-        playerSelection > computerSelection;
+        result1 = win++;
+        console.log("You Win!, Scissors beats paper");
     }
     else if(playerSelection == "rock" && computerSelection == "scissors"){
-        playerSelection > computerSelection;
+        result1 = win++;
+        console.log("You Win! Rock beats Scissors");
     }
     else if(playerSelection == "rock" && computerSelection == "paper"){
-        playerSelection < computerSelection;
+        result2 = lose++;
+        console.log("You lose! Paper beats Rock");
     }
     else if(playerSelection == "paper" && computerSelection == "scissors"){
-        playerSelection < computerSelection;
+        result2 = lose++;
+        console.log("You lose! Scissors beats paper");
     }
     else if(playerSelection == "scissors" && computerSelection == "rock"){
-        playerSelection < computerSelection;
+        result2 = lose++;
+        console.log("You lose! Rock beats Scissors");
     }
-
 }
-
-//function to return result of who wins
-/*function oneRound()
-{
-    if(playerSelection == computerSelection){
-        tie++;
-    }
-    else if(playerSelection > computerSelection){
-        win++;
-    }
-    else if(playerSelection < computerSelection){
-        lose++;
-    }
-}*/
 
 //function to run game 5 times
 function game(){
-    round();
-   // oneRound();
 
     for (let i = 0; i < 5; i++) {
-        if (i == "win"){
-            win++;
+        if (i == 0){
+            round();
+          
+            
         } 
-        if (i == "lose"){
-            lose++;
+        if (i == 1){
+            round();
+            
         } 
-        if (i == "tie"){
-            tie++;
+        if (i == 2){
+            round();
+            
+        } 
+        if (i == 3){
+            round();
+            
+        } 
+        if (i == 4){
+            round();
+            
         } 
     }
-
-    console.log("wins: " + win);
-    console.log("losses: " + lose);
-    console.log("ties: " + tie);
     }
     
 game();
+
+
