@@ -3,6 +3,8 @@ var items = ["rock", "paper", "scissors"];
 let win = 0;
 let lose = 0;
 let tie = 0;
+let maxScore = 5;
+
 
 
 //getting computer choice
@@ -20,25 +22,18 @@ function round(){
     let computerSelection = getComputerChoice(items);
 
 
-    if(playerSelection === computerSelection){
+    if(playerSelection == computerSelection)
+    {
+        console.log("It's a Tie!");
         return tie++;
     }
-    else if(playerSelection == "paper" && computerSelection == "rock"){
+    else if(playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "rock" && computerSelection == "scissors")
+    {
+        console.log("You win!");
         return win++;
     }
-    else if(playerSelection == "scissors" && computerSelection == "paper"){
-        return win++;
-    }
-    else if(playerSelection == "rock" && computerSelection == "scissors"){
-        return win++;
-    }
-    else if(playerSelection == "rock" && computerSelection == "paper"){
-        return lose++;
-    }
-    else if(playerSelection == "paper" && computerSelection == "scissors"){
-        return lose++;
-    }
-    else if(playerSelection == "scissors" && computerSelection == "rock"){
+    else if(playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock"){
+        console.log("You lose!");
         return lose++;
     }
 }
@@ -52,24 +47,26 @@ function game(){
             
         } 
         if (i == 1){
-            round();
-            
+            round();            
         } 
         if (i == 2){
-            round();
-            
+            round();            
         } 
         if (i == 3){
-            round();
-            
+            round();            
         } 
         if (i == 4){
-            round();
-            
+            round();            
         } 
     }
+
+    console.log("Wins: " + win);
+    console.log("Losses: " + lose);
+    console.log("Ties: " + tie);
     }
     
 game();
+
+
 
 
