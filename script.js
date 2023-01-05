@@ -1,28 +1,32 @@
 //variable declaration
-var items = ["rock", "paper", "scissors"];
+
 let win = 0;
 let lose = 0;
 let tie = 0;
 let maxScore = 5;
+let computerSelection = getComputerChoice();
+let playerSelection;
 
 
 
 //getting computer choice
 function getComputerChoice(items)
 {
-  
+    var items = ["rock", "paper", "scissors"];
 return items[Math.floor(Math.random()*items.length)];
      
+}
+
+function getPlayerChoice(){
+    buttonRock.onclick = function(){playerSelection = "rock"};
+    buttonPaper.onclick = function(){playerSelection = "paper"};
+    buttonScissors.onclick = function(){playerSelection = "scissors"};
 }
 
 
 //function to play one round and output result
 function round(){
-    let playerSelection = prompt("Please type in your choice!", "Choice").toLowerCase();
-    let computerSelection = getComputerChoice(items);
-
-
-    if(playerSelection == computerSelection)
+       if(playerSelection == computerSelection)
     {
         console.log("It's a Tie!");
         return tie++;
@@ -38,35 +42,28 @@ function round(){
     }
 }
 
-//function to run game 5 times
 function game(){
+    getComputerChoice;
+    getPlayerChoice;
+    round;
+}
 
-    for (let i = 0; i < 5; i++) {
-        if (i == 0){
-            round();
-            
-        } 
-        if (i == 1){
-            round();            
-        } 
-        if (i == 2){
-            round();            
-        } 
-        if (i == 3){
-            round();            
-        } 
-        if (i == 4){
-            round();            
-        } 
-    }
+const container = document.querySelector('#container');
 
-    console.log("Wins: " + win);
-    console.log("Losses: " + lose);
-    console.log("Ties: " + tie);
-    }
-    
+const buttonRock = document.createElement('button');
+buttonRock.textContent = "Rock";
+buttonRock.addEventListener('click', game());
+
+const buttonPaper = document.createElement('button');
+buttonPaper.textContent = "Paper";
+buttonPaper.addEventListener('click', game());
+
+const buttonScissors = document.createElement('button');
+buttonScissors.textContent = "Scissors";
+buttonScissors.addEventListener('click', game());
+
+container.appendChild(buttonRock);
+container.appendChild(buttonPaper);
+container.appendChild(buttonScissors);
+
 game();
-
-
-
-
