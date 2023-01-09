@@ -18,9 +18,18 @@ return items[Math.floor(Math.random()*items.length)];
 }
 
 function getPlayerChoice(){
-    buttonRock.onclick = function(){playerSelection = "rock"};
-    buttonPaper.onclick = function(){playerSelection = "paper"};
-    buttonScissors.onclick = function(){playerSelection = "scissors"};
+    buttonRock.onclick = function(){
+        playerSelection = "rock";
+        console.log(playerSelection);
+    };
+    buttonPaper.onclick = function(){
+        playerSelection = "paper";
+        console.log(playerSelection);
+    };
+    buttonScissors.onclick = function(){
+        playerSelection = "scissors";
+        console.log(playerSelection);
+    };
 }
 
 
@@ -42,28 +51,21 @@ function round(){
     }
 }
 
-function game(){
-    getComputerChoice;
-    getPlayerChoice;
-    round;
-}
-
+//adding buttons to screen
 const container = document.querySelector('#container');
 
 const buttonRock = document.createElement('button');
 buttonRock.textContent = "Rock";
-buttonRock.addEventListener('click', game());
+buttonRock.addEventListener('click', getPlayerChoice);
 
 const buttonPaper = document.createElement('button');
 buttonPaper.textContent = "Paper";
-buttonPaper.addEventListener('click', game());
+buttonPaper.addEventListener('click', getPlayerChoice);
 
 const buttonScissors = document.createElement('button');
 buttonScissors.textContent = "Scissors";
-buttonScissors.addEventListener('click', game());
+buttonScissors.addEventListener('click', getPlayerChoice);
 
 container.appendChild(buttonRock);
 container.appendChild(buttonPaper);
 container.appendChild(buttonScissors);
-
-game();
