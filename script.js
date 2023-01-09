@@ -1,71 +1,94 @@
 //variable declaration
-
+let tie = 0;
 let win = 0;
 let lose = 0;
-let tie = 0;
 let maxScore = 5;
 let computerSelection = getComputerChoice();
 let playerSelection;
-
+const playerOptions = ["rock", "paper", "scissors"];
 
 
 //getting computer choice
-function getComputerChoice(items)
+function getComputerChoice()
 {
-    var items = ["rock", "paper", "scissors"];
+    const items = ["rock", "paper", "scissors"];
 return items[Math.floor(Math.random()*items.length)];
      
-}
-
-function getPlayerChoice(){
-    buttonRock.onclick = function(){
-        playerSelection = "rock";
-        console.log(playerSelection);
-    };
-    buttonPaper.onclick = function(){
-        playerSelection = "paper";
-        console.log(playerSelection);
-    };
-    buttonScissors.onclick = function(){
-        playerSelection = "scissors";
-        console.log(playerSelection);
-    };
 }
 
 
 //function to play one round and output result
 function round(){
-       if(playerSelection == computerSelection)
+    
+
+    buttonRock.onclick = function(){
+        playerSelection = playerOptions[0];
+    };
+    buttonPaper.onclick = function(){
+        playerSelection = playerOptions[1];
+    };
+    buttonScissors.onclick = function(){
+        playerSelection = playerOptions[2];
+    };
+
+    if(playerSelection == computerSelection)
     {
-        console.log("It's a Tie!");
-        return tie++;
+        tie++;
+        tieScore.textContent = 'Ties: ' + tie;
+        return tie;
     }
     else if(playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "rock" && computerSelection == "scissors")
     {
-        console.log("You win!");
-        return win++;
+        win++;
+        winScore.textContent = 'Player Score: ' + win;
+        return win;
     }
-    else if(playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock"){
-        console.log("You lose!");
-        return lose++;
+    else if(playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock")
+    {
+        lose++;
+        loseScore.textContent = 'Computer Score: ' + lose;
+        return lose;
     }
+
+ 
 }
+
+
+
 
 //adding buttons to screen
 const container = document.querySelector('#container');
 
+
 const buttonRock = document.createElement('button');
 buttonRock.textContent = "Rock";
-buttonRock.addEventListener('click', getPlayerChoice);
+buttonRock.addEventListener('click', round);
 
 const buttonPaper = document.createElement('button');
 buttonPaper.textContent = "Paper";
-buttonPaper.addEventListener('click', getPlayerChoice);
+buttonPaper.addEventListener('click', round);
 
 const buttonScissors = document.createElement('button');
 buttonScissors.textContent = "Scissors";
-buttonScissors.addEventListener('click', getPlayerChoice);
+buttonScissors.addEventListener('click', round);
 
 container.appendChild(buttonRock);
 container.appendChild(buttonPaper);
 container.appendChild(buttonScissors);
+
+//adding scoreline to screen
+const scoreline = document.querySelector('#scoreline');
+
+const tieScore = document.createElement('h3');
+tieScore.textContent = 'Ties: ' + tie;
+
+const winScore = document.createElement('h3');
+winScore.textContent = 'Player Score: ' + win;
+
+const loseScore = document.createElement('h3');
+loseScore.textContent = 'Computer Score: ' + lose;
+
+scoreline.appendChild(tieScore);
+scoreline.appendChild(winScore);
+scoreline.appendChild(loseScore);
+
