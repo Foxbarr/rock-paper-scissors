@@ -1,0 +1,20 @@
+.bodyStyle{
+    background-color: rgb(184, 182, 182);
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.scores{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.results{
+    display: flex;
+    justify-content: center;
+}
