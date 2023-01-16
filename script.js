@@ -62,6 +62,7 @@ function round(){
 const gameResult = document.querySelector('#result');
 
 const resultDisplay = document.createElement('h3');
+resultDisplay.textContent = "Select an option to start playing!";
 
 gameResult.appendChild(resultDisplay);
 
