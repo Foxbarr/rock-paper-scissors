@@ -22,7 +22,7 @@ function round(){
     if(playerSelection == computerSelection)
     {
         tie++;
-        tieScore.textContent = 'Ties: ' + tie;
+        //tieScore.textContent = 'Ties: ' + tie;
         resultDisplay.textContent = "It's a tie!";           
         return tie;
     }
@@ -71,16 +71,19 @@ const container = document.querySelector('#container');
 
 
 const buttonRock = document.createElement('button');
+buttonRock.setAttribute("class", "buttons");
 buttonRock.textContent = "Rock";
 buttonRock.addEventListener('click', function() { playerSelection = playerOptions[0];});
 buttonRock.addEventListener('click', round);
 
 const buttonPaper = document.createElement('button');
+buttonPaper.setAttribute("class", "buttons");
 buttonPaper.textContent = "Paper";
 buttonPaper.addEventListener('click', function(){playerSelection = playerOptions[1];});
 buttonPaper.addEventListener('click', round);
 
 const buttonScissors = document.createElement('button');
+buttonScissors.setAttribute("class", "buttons");
 buttonScissors.textContent = "Scissors";
 buttonScissors.addEventListener('click', function(){playerSelection = playerOptions[2];});
 buttonScissors.addEventListener('click', round);
@@ -92,8 +95,8 @@ container.appendChild(buttonScissors);
 //adding scoreline to screen
 const scoreline = document.querySelector('#scoreline');
 
-const tieScore = document.createElement('h3');
-tieScore.textContent = 'Ties: ' + tie;
+//const tieScore = document.createElement('h3');
+//tieScore.textContent = 'Ties: ' + tie;
 
 const winScore = document.createElement('h3');
 winScore.textContent = 'Player Score: ' + win;
@@ -101,7 +104,7 @@ winScore.textContent = 'Player Score: ' + win;
 const loseScore = document.createElement('h3');
 loseScore.textContent = 'Computer Score: ' + lose;
 
-scoreline.appendChild(tieScore);
+//scoreline.appendChild(tieScore);
 scoreline.appendChild(winScore);
 scoreline.appendChild(loseScore);
 
