@@ -23,7 +23,8 @@ function round(){
     {
         tie++;
         //tieScore.textContent = 'Ties: ' + tie;
-        resultDisplay.textContent = "It's a tie!";           
+        resultDisplay.textContent = "It's a tie!";
+        playerChoice.textContent = "You picked " + playerSelection + ", Computer picked " + computerSelection;           
         return tie;
     }
     else if(playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "rock" && computerSelection == "scissors")
@@ -31,6 +32,7 @@ function round(){
         win++;
         winScore.textContent = 'Player Score: ' + win;
         resultDisplay.textContent = "You Win! " + playerSelection + " beats " + computerSelection;
+        playerChoice.textContent = "You picked " + playerSelection + ", Computer picked " + computerSelection;
 
             if(win == maxScore){
                 resultDisplay.textContent = "You won the game! Refresh the page to play again.";
@@ -46,6 +48,7 @@ function round(){
         lose++;
         loseScore.textContent = 'Computer Score: ' + lose;
         resultDisplay.textContent = "You Lose! " + computerSelection + " beats " + playerSelection;
+        playerChoice.textContent = "You picked " + playerSelection + ", Computer picked " + computerSelection;
         if(lose == maxScore){
             resultDisplay.textContent = "You lost the game! Refresh the page to play again.";
             buttonRock.removeEventListener('click', round);
@@ -56,8 +59,17 @@ function round(){
     }
 
     
-    }
     
+    }
+ 
+//displaying choice of player and computer
+const playerChoice = document.querySelector('#choice');
+
+const choiceDisplay = document.createElement('h2');
+
+playerChoice.appendChild(choiceDisplay);
+
+
 //displaying result on screen
 const gameResult = document.querySelector('#result');
 
